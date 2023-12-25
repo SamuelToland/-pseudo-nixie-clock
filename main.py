@@ -62,17 +62,18 @@ def parseSubCount(subCount: str):
 
 def mainFun():
     print("mainThread Start")
-    showZeroCount()
-
     while 1:
-        subscriberCount = getSubscriberCount(youtubeChannelId, supersecretauth)
-        displayString = parseSubCount(subscriberCount)
+        showZeroCount()
 
-        # Show the correct images
-        for i in range(0,len(displayString)-1):
-            lcd.ShowImage(i, Image.open(numpicdir + f'{displayString[i]}.jpg'))
+    # while 1:
+    # subscriberCount = getSubscriberCount(youtubeChannelId, supersecretauth)
+    # displayString = parseSubCount(subscriberCount)
+    #
+    # # Show the correct images
+    # for i in range(0,len(displayString)-1):
+    #     lcd.ShowImage(i, Image.open(numpicdir + f'{displayString[i]}.jpg'))
 
-        time.sleep(updateWait)
+    # time.sleep(updateWait)
 
 mainFun()
 rgb.Close()
