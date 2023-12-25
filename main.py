@@ -33,6 +33,8 @@ rgb.SetRGB(rgbColor)
 supersecretauth = 'AIzaSyDugsExa9g7-bU51rQOViFG05skGLudDlQ'
 youtubeChannelId = "UCL8_FK5K4vpMGxjiyM76B4w"
 youtubeUrl = f"https://www.googleapis.com/youtube/v3/channels?id={youtubeChannelId}&part=statistics&key={supersecretauth}"
+updateWait = 60
+
 
 def showZeroCount():
     lcd.ShowImage(0, Image.open(numpicdir + '0.jpg'))
@@ -62,12 +64,15 @@ def mainFun():
     print("mainThread Start")
     showZeroCount()
 
-    subscriberCount = getSubscriberCount(youtubeChannelId, supersecretauth)
-    displayString = parseSubCount(subscriberCount)
+    while 1:
+        subscriberCount = getSubscriberCount(youtubeChannelId, supersecretauth)
+        displayString = parseSubCount(subscriberCount)
 
-    # Show the correct images
-    for i in range(0,len(displayString)-1):
-        lcd.ShowImage(i, Image.open(numpicdir + f'{displayString[i]}.jpg'))
+        # Show the correct images
+        for i in range(0,len(displayString)-1):
+            lcd.ShowImage(i, Image.open(numpicdir + f'{displayString[i]}.jpg'))
+
+        time.sleep(updateWait)
 
 mainFun()
 rgb.Close()
