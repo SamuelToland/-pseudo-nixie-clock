@@ -66,7 +66,7 @@ def mainFun():
     displayString = parseSubCount(subscriberCount)
 
     # Show the correct images
-    for i in len(displayString):
+    for i in range(0,len(displayString)-1):
         lcd.ShowImage(i, Image.open(numpicdir + f'{displayString[i]}.jpg'))
 
 mainFun()
