@@ -12,12 +12,8 @@ from rpi_ws281x import Adafruit_NeoPixel, Color
 import requests
 import os
 
-user = "pi"
-
 dir = os.getcwd()
-
-numpicdir = dir + "/numpic/B/"
-menupicdir = dir + "/menupic/B/"
+numpicdir = dir + "/numpic/A/"
 
 print("1. LCD init")
 BlackLightLev = 8
